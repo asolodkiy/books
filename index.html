@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" ng-app="library">
+<head>
+	<link rel="stylesheet" href="css/app.css">
+	<!--<script src="components/controllers.js"></script>-->
+	<!--<script src="components/filters.js"></script>-->
+	<!--<script src="components/services.js"></script>-->
+	<!--<script src="components/directives.js"></script>-->
+	<script src="js/angular.js"></script>
+	<script src="app.js"></script>
+	<title>Library</title>
+</head>
+<body>
+<div class="content">
+	Search: <input ng-model="queryAuthor">
+
+	<table ng-controller="AuthorsListController as library">
+		<tr>
+			<th>id</th>
+			<th>first_name</th>
+			<th>last_name</th>
+			<th>nationality</th>
+			<th>quantity</th>
+		</tr>
+		<tr ng-repeat="author in library.authors | filter:queryAuthor">
+			<td>{{author.id}}</td>
+			<td>{{author.first_name}}</td>
+			<td>{{author.last_name}}</td>
+			<td>{{author.nationality}}</td>
+			<td ng-click="$scope.count = author.id;">{{author.quantity}}
+
+				{{$scope.count}}
+			</td>
+		</tr>
+
+	</table>
+
+	{{count}}
+
+	<br/>
+	<hr/>
+	{{$scope.count}}
+	<p>11111{{$scope.count}}</p>
+
+
+	<hr/>
+
+	<br/>
+	Search: <input ng-model="searchBook.$">
+	<table ng-controller="BooksListController as library">
+		<tr>
+			<th>id</th>
+			<th>author_id</th>
+			<th>title</th>
+			<th>year</th>
+		</tr>
+		<tr ng-repeat="book in library.books | filter:searchBook">
+			<td>{{book.id}}</td>
+			<td>{{book.author_id}}</td>
+			<td>{{book.title}}</td>
+			<td>{{book.year}}</td>
+		</tr>
+	</table>
+</div>
+
+
+</body>
+</html>
