@@ -1,8 +1,6 @@
 (function($scope){
 	'use strict';
 
-
-
 	var app = angular.module('library', []);
 
 	app.controller('AuthorsListController', ['$http', function($http){
@@ -21,9 +19,11 @@
 		})
 	}]);
 
-	//app.controller('ContentCtrl', function($scope) {
-	//	//$scope.count = "000";
-	//});
+	app.controller('testController', ['$scope', function($scope){
+		$scope.checkId = function(value){
+			$scope.authorId = value;
+		};
+	}]);
 
 })();
 

@@ -2,16 +2,12 @@
 <html lang="en" ng-app="library">
 <head>
 	<link rel="stylesheet" href="css/app.css">
-	<!--<script src="components/controllers.js"></script>-->
-	<!--<script src="components/filters.js"></script>-->
-	<!--<script src="components/services.js"></script>-->
-	<!--<script src="components/directives.js"></script>-->
 	<script src="js/angular.js"></script>
 	<script src="app.js"></script>
 	<title>Library</title>
 </head>
 <body>
-<div class="content">
+<div class="content" ng-controller="testController">
 	Search: <input ng-model="queryAuthor">
 
 	<table ng-controller="AuthorsListController as library">
@@ -27,26 +23,14 @@
 			<td>{{author.first_name}}</td>
 			<td>{{author.last_name}}</td>
 			<td>{{author.nationality}}</td>
-			<td ng-click="$scope.count = author.id;">{{author.quantity}}
-
-				{{$scope.count}}
-			</td>
+			<td ng-click="checkId(author.id)">{{author.quantity}}</td>
 		</tr>
-
 	</table>
 
-	{{count}}
-
-	<br/>
-	<hr/>
-	{{$scope.count}}
-	<p>11111{{$scope.count}}</p>
-
-
 	<hr/>
 
 	<br/>
-	Search: <input ng-model="searchBook.$">
+	Search: <input ng-model="searchBook">
 	<table ng-controller="BooksListController as library">
 		<tr>
 			<th>id</th>
@@ -61,7 +45,9 @@
 			<td>{{book.year}}</td>
 		</tr>
 	</table>
+	Author: {{authorId}}
 </div>
+
 
 
 </body>
